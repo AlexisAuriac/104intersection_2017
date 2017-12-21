@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 
 import sys
+from math import *
 import error
+import solve
 import show
 
 if __name__ == "__main__":
@@ -10,3 +12,7 @@ if __name__ == "__main__":
         exit(84)
     show.type(av)
     show.line(av)
+    if av[0] is "sphere":
+        solve.sphere(av)
+    elif av[0] is "cylinder":
+        solve.cylindre(av)

@@ -1,5 +1,12 @@
 #!/usr/bin/python3
 
+def show_float(nb, prec):
+    if type(nb) is not float:
+        raise TypeError("Argument must be a float")
+    nb = str(nb)
+    int_part, float_part = nb.split(".")
+    print(",".join([int_part, float_part[:prec]]))
+
 def type(av):
     """displays the type and paramter of the object"""
     if av[0] is "1":

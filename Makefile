@@ -9,7 +9,7 @@ NAME	=	104intersection
 
 all	:	$(NAME)
 
-$(NAME)	:
+$(NAME)	:	intersection.py
 		cp intersection.py $(NAME)
 
 fclean	:
