@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import utilities
+
 def show_float(nb, prec):
     if type(nb) is not float:
         raise TypeError("Argument must be a float")
@@ -7,27 +9,48 @@ def show_float(nb, prec):
     int_part, float_part = nb.split(".")
     print(",".join([int_part, float_part[:prec]]))
 
-def type(av):
+def type(surface, param):
     """displays the type and paramter of the object"""
-    if av[0] is "1":
-        av[0] = "sphere"
-        av[7] = "radius " + av[7]
-    elif av[0] is "2":
-        av[0] = "cylinder"
-        av[7] = "radius " + av[7]
+    disp = str()
+    
+    if surface is "1":
+        surface = "sphere"
+        disp = "radius " + str(param)
+    elif surface is "2":
+        surface = "cylinder"
+        disp = "radius " + str(param)
     else:
-        av[0] = "cone"
-        av[7] = av[7] + " degree angle"
-    print(av[0], "of", av[7])
-    av[7] = av[7].split(" ")
-    for i in av[7]:
-        if i.isnumeric() == True:
-            av[7] = i
+        surface = "cone"
+        disp = param + " degree angle"
+    print(surface, "of", disp)
+    return (surface)
 
-def line(av):
+def line(p, v):
     """displays infos about the line"""
     str = "straight line going through the ({0},{1},{2})"\
-          .format(av[1], av[2], av[3])
+          .format(p[0], p[1], p[2])
     str += " point and of direction vector ({0},{1},{2})"\
-           .format(av[4], av[5], av[6])
+           .format(v[0], v[1], v[2])
     print(str)
+
+def points(sol, p, v):
+    for i in sol:
+        x = float(p[0]) + i * float(v[0])
+        y = float(p[1]) + i * float(v[1])
+        z = float(p[2]) + i * float(v[2])
+        x = utilities.set_prec(x, 3)
+        y = utilities.set_prec(y, 3)
+        z = utilities.set_prec(z, 3)
+        print("({0}, {1}, {2})".format(x, y, z))
+
+def nb_sol(sol):
+    if sol == -1:
+        print("There is an infinite number of intersection points.")
+        return (0)
+    if len(sol) is 0:
+        print("No intersection point.")
+    elif len(sol) is 1:
+        print("1 intersection point :")
+    else:
+        print("2 intersection points :")
+    return (1)
