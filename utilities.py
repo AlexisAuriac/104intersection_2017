@@ -9,7 +9,7 @@ def secdegree(a, b, c):
     if a == 0 and b == 0 and c == 0:
         return (-1)
     if delta == 0:
-        sol.append(-b/2*a)
+        sol.append(-b/(2*a))
     elif delta > 0:
         sol.append((-b+sqrt(delta))/(2*a))
         sol.append((-b-sqrt(delta))/(2*a))

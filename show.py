@@ -12,7 +12,7 @@ def show_float(nb, prec):
 def type(surface, param):
     """displays the type and paramter of the object"""
     disp = str()
-    
+
     if surface is "1":
         surface = "sphere"
         disp = "radius " + str(param)
@@ -21,17 +21,25 @@ def type(surface, param):
         disp = "radius " + str(param)
     else:
         surface = "cone"
-        disp = param + " degree angle"
+        disp = str(param) + " degree angle"
     print(surface, "of", disp)
     return (surface)
 
 def line(p, v):
     """displays infos about the line"""
-    str = "straight line going through the ({0},{1},{2})"\
-          .format(p[0], p[1], p[2])
-    str += " point and of direction vector ({0},{1},{2})"\
-           .format(v[0], v[1], v[2])
-    print(str)
+    print("straight line going through the ({0},{1},{2})"\
+          .format(p[0], p[1], p[2]), end=' ')
+    print("point and of direction vector ({0},{1},{2})"\
+          .format(v[0], v[1], v[2]))
+
+def nb_sol(sol):
+    if len(sol) is 0:
+        print("No intersection point.")
+    elif len(sol) is 1:
+        print("1 intersection point :")
+    else:
+        print("2 intersection points :")
+    return (1)
 
 def points(sol, p, v):
     for i in sol:
@@ -42,15 +50,3 @@ def points(sol, p, v):
         y = utilities.set_prec(y, 3)
         z = utilities.set_prec(z, 3)
         print("({0}, {1}, {2})".format(x, y, z))
-
-def nb_sol(sol):
-    if sol == -1:
-        print("There is an infinite number of intersection points.")
-        return (0)
-    if len(sol) is 0:
-        print("No intersection point.")
-    elif len(sol) is 1:
-        print("1 intersection point :")
-    else:
-        print("2 intersection points :")
-    return (1)

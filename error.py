@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+from math import *
+
 def error(av):
     if len(av) is not 8:
         return (84)
