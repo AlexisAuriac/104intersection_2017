@@ -46,7 +46,4 @@ def points(sol, p, v):
         x = float(p[0]) + i * float(v[0])
         y = float(p[1]) + i * float(v[1])
         z = float(p[2]) + i * float(v[2])
-        x = utilities.set_prec(x, 3)
-        y = utilities.set_prec(y, 3)
-        z = utilities.set_prec(z, 3)
-        print("({0}, {1}, {2})".format(x, y, z))
+        print("(%.3f, %.3f, %.3f)" % (x, y, z))

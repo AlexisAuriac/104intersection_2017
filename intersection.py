@@ -6,8 +6,7 @@ import error
 import solve
 import show
 
-if __name__ == "__main__":
-    av = sys.argv[1:]
+def main(av):
     if error.error(av) is 84:
         exit(84)
     av[0] = show.type(av[0], av[7])
@@ -19,3 +18,6 @@ if __name__ == "__main__":
     elif av[0] is "cone":
         solve.cone(av[1:4], av[4:7], av[7])
     exit(0)
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
