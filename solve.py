@@ -26,9 +26,12 @@ def cylindre(p, v, R):
     show.points(sol, p, v)
 
 def cone(p, v, A):
-    a = v[0]**2 + v[1]**2 - tan(A)**2*v[2]**2
-    b = 2*(p[0]*v[0] + p[1]*v[1] - tan(A)**2*p[2]*v[2])
-    c = p[0]**2 + p[1]**2 - tan(A)**2*p[2]**2
+    a = (v[0]**2) + (v[1]**2) - ((tan(radians(A))**2)*(v[2]**2))
+    b = 2*(p[0]*v[0] + p[1]*v[1] - tan(radians(A))**2*p[2]*v[2])
+    c = p[0]**2 + p[1]**2 - tan(radians(A))**2*p[2]**2
+    print("a = {0}".format(a))
+    print("b = {0}".format(b))
+    print("c = {0}".format(c))
     sol = utilities.secdegree(a, b, c)
 
     show.nb_sol(sol)
