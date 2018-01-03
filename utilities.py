@@ -6,7 +6,7 @@ def secdegree(a, b, c):
     delta = b**2 - 4*a*c
     sol = list()
 
-    if a == 0 and b == 0 and c == 0:
+    if a == 0:
         return (-1)
     if delta == 0:
         sol.append(-b/(2*a))
